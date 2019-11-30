@@ -1,0 +1,30 @@
+
+<mat-card>
+  <mat-toolbar color="primary" style="justify-content: center; align-items: center;">
+    <h2 class="headerSpan">Team List</h2>
+  </mat-toolbar>
+
+<!-- add button start here -->
+<mat-toolbar class="buttonsetToolbar">
+  <button class="singleButton" mat-raised-button color="primary" (click)="addButton()" >Add Team Member</button>
+</mat-toolbar>
+<!-- adding button end here -->
+<mat-card-content class="listing-content-admin">
+  <lib-listing class="formfilterdiv formfilterdivnew" *ngIf="DataList.length>0" 
+    [datasource]="DataList"
+    [jwttoken]="tokenVal" 
+    [skip]="data_skip" 
+    [modify_header_array]="data_modify_header" 
+    [apiurl]="serverUrlData" 
+    [deleteendpoint]="DelEndpoint"
+    [editroute]="editroute"
+    [updateendpoint]="updatendpoint"
+    [sourcedata]="collectionName"
+    [date_search_source]="searchingSource"
+    [date_search_endpoint]="searchingEndpoint"
+    [search_settings]="search_settings"
+    [detail_datatype]="pendingmodelapplicationarray_detail_datatype"
+   >
+</lib-listing>
+</mat-card-content>
+</mat-card>

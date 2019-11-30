@@ -1,0 +1,63 @@
+<mat-card>
+  <mat-toolbar color="primary" style="justify-content: center; align-items: center;">
+    <h2 class="headerSpan">Team Category Management</h2>
+  </mat-toolbar>
+
+  <span class="formspan">
+  <mat-card-content class="example-container">
+
+    <!-- ----------form starts here------------------ -->
+    <form class="example-form"
+    name="CategoryManagementTeamForm" (ngSubmit)="CategoryManagementTeamFormSubmit()"
+          [formGroup]="CategoryManagementTeamForm" >
+
+
+      <!-- ---------------------input for role name---------------- -->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Category Name" 
+        [formControl]="CategoryManagementTeamForm.controls['categoryName']"
+        (blur)="inputUntouch(CategoryManagementTeamForm,'categoryName')">
+        <mat-error *ngIf="CategoryManagementTeamForm.controls['categoryName'].touched && !CategoryManagementTeamForm.controls['categoryName'].valid
+               && CategoryManagementTeamForm.controls['categoryName'].errors.required">
+              Category Name field can not be blank</mat-error>
+      </mat-form-field><br>
+
+      <!-- -----------------------text area------------------------>
+      <mat-form-field>
+        <textarea matInput placeholder="Description" 
+        [formControl]="CategoryManagementTeamForm.controls['description']"
+        (blur)="inputUntouch(CategoryManagementTeamForm,'description')"
+          ></textarea>
+          <mat-error *ngIf="CategoryManagementTeamForm.controls['description'].touched && !CategoryManagementTeamForm.controls['description'].valid
+          && CategoryManagementTeamForm.controls['description'].errors.required">
+         Description field can not be blank</mat-error>
+      </mat-form-field><br>
+
+      <!-- ------status for role-management---------- -->
+      <mat-checkbox [formControl]="CategoryManagementTeamForm.controls['status']" color="primary" >Active</mat-checkbox><br>
+
+      <mat-form-field>
+        <mat-label>Multiple Role</mat-label>
+        <mat-select formControlName="role" multiple >
+          <mat-option [value]=0>
+            Select a category
+          </mat-option>
+          <mat-option *ngFor="let f of allData" [value]="f.roleslug">
+        {{f.roleslug}}
+      </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- -------------------button form submission----------------------- -->
+      <button type="submit" class="submitbtn" mat-raised-button color="primary" >{{ButtonText}}</button>
+      <!-- resetting the form -->
+      <button type="button" class="submitbtn" mat-raised-button color="primary" (click)="ResetTeamForm()" >Reset</button>
+    </form>
+
+    <!-- -----------------------form ends here--------------------->
+  </mat-card-content>
+  
+
+</span>
+<mat-spinner  *ngIf="spinnerLoader"></mat-spinner>
+</mat-card>

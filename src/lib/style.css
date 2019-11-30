@@ -1,0 +1,234 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    border: 2px solid rgb(224, 218, 218);
+  }
+  .headerSpan{
+    text-align: center;
+    display: block;
+    margin: auto;
+  }
+  .darkToolbar{
+    background-color: black;
+  }
+  .gridListWrapper{
+    padding: 30px;
+  }
+  .buttonsetToolbar{
+    background-color: #f4f3f8;
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+  }
+  .singleButton{
+    margin: 5px;
+   
+    float: right;
+
+  }
+  .example-form {
+    min-width: 150px;
+    max-width: auto;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+/* 
+
+  .mat-card{ background:white!important;}
+
+  .mat-dialog-content{padding: 10px !important; border-radius: 0; overflow: hidden !important;}
+  .mat-dialog-content .mat-dialog-title{
+      background-color: #4f4f4f;
+      border: 0px;
+      padding: .35em;
+      color: #ffffff;
+  }
+  
+  .mat-dialog-content .mat-card {
+      transition: none !important;
+      display: flex;
+      position: relative;
+      padding: 5px;
+      border-radius: 0px;
+      align-items: center;
+  }
+  
+  .mat-dialog-content .mat-card .mat-card-header{white-space: normal; word-break: break-word;}
+  .mat-dialog-content .mat-card .mat-card-content{white-space: normal; word-break: break-word;}
+  
+  .mat-dialog-content .mat-card-header .mat-card-title {
+      margin-bottom: 0;
+      font-size: 16px;
+  }
+  
+  .mat-dialog-content .mat-dialog-actions {
+      margin-bottom: 0px;
+      justify-content: center;
+  }
+  
+  .mat-dialog-content .mat-dialog-actions button{
+      display: inline-block;
+      height: auto;
+      background: #cc3333;
+      font-size: 18px;
+      color: #fff!important;
+      text-transform: uppercase;
+      font-family: 'Ralewaybold';
+      text-decoration: none!important;
+      line-height: normal;
+      text-align: center;
+      margin: 0 auto;
+      white-space: normal;
+      margin-top: 10px;;
+      padding: 12px 10px;
+      border-radius: 0px !important;
+  }
+  
+  .cdk-global-overlay-wrapper {
+      align-items: center !important;
+  }
+  .cdk-global-overlay-wrapper .mat-bottom-sheet-container bottom-sheet .mat-nav-list{display:flex; padding-top:0 !important;}
+  .mat-bottom-sheet-container bottom-sheet .mat-nav-list .mat-list-item {
+      display: inline-block;
+      height: auto;
+      background: #cc3333;
+      font-size: 18px;
+      color: #fff!important;
+      text-transform: uppercase;
+      font-family: 'Ralewaybold';
+      text-decoration: none!important;
+      line-height: normal;
+      text-align: center;
+      margin: 5px;
+      white-space: normal;
+      padding: 12px 10px;
+      border-radius: 0px !important;
+  }
+  
+  .mat-bottom-sheet-container bottom-sheet .mat-nav-list{text-align: center;} */
+
+
+
+
+
+  .mat-card{ background:white!important;}
+
+  .mat-dialog-content{padding: 10px !important; border-radius: 0; overflow: hidden !important;}
+  .mat-dialog-content .mat-dialog-title{
+      background-color: #4f4f4f;
+      border: 0px;
+      padding: .35em;
+      color: #ffffff;
+  }
+  
+  .mat-dialog-content .mat-card {
+      transition: none !important;
+      display: flex !important; 
+      position: relative;
+      padding: 5px;
+      border-radius: 0px;
+      align-items: center;
+  }
+  
+  .mat-dialog-content .mat-card .mat-card-header{white-space: normal; word-break: break-word;}
+  .mat-dialog-content .mat-card .mat-card-content{white-space: normal; word-break: break-word;}
+  
+  .mat-dialog-content .mat-card-header .mat-card-title {
+      margin-bottom: 0;
+      font-size: 16px;
+  }
+  
+  .mat-dialog-content .mat-dialog-actions {
+      margin-bottom: 0px;
+      justify-content: center;
+  }
+  
+  .mat-dialog-content .mat-dialog-actions button{
+      display: inline-block;
+      height: auto;
+      background: #cc3333;
+      font-size: 18px;
+      color: #fff!important;
+      text-transform: uppercase;
+      font-family: 'Ralewaybold';
+      text-decoration: none!important;
+      line-height: normal;
+      text-align: center;
+      margin: 0 auto;
+      white-space: normal;
+      margin-top: 10px;;
+      padding: 12px 10px;
+      border-radius: 0px !important;
+  }
+  
+  .cdk-global-overlay-wrapper {
+      align-items: center !important;
+  }
+  .cdk-global-overlay-wrapper .mat-bottom-sheet-container bottom-sheet .mat-nav-list{display:flex; padding-top:0 !important;}
+  .mat-bottom-sheet-container bottom-sheet .mat-nav-list .mat-list-item {
+      display: inline-block;
+      height: auto;
+      background: #cc3333;
+      font-size: 18px;
+      color: #fff!important;
+      text-transform: uppercase;
+      font-family: 'Ralewaybold';
+      text-decoration: none!important;
+      line-height: normal;
+      text-align: center;
+      margin: 5px;
+      white-space: normal;
+      padding: 12px 10px;
+      border-radius: 0px !important;
+  }
+  
+  .mat-bottom-sheet-container bottom-sheet .mat-nav-list{text-align: center;}
+  
+  
+  .mat-dialog-container .mat-dialog-actions button {
+      display: inline-block;
+      height: auto;
+      background: #cc3333;
+      font-size: 18px;
+      color: #fff!important;
+      text-transform: uppercase;
+      font-family: 'Ralewaybold';
+      text-decoration: none!important;
+      line-height: normal;
+      text-align: center;
+      margin: 0 auto;
+      white-space: normal;
+      margin-top: 10px;
+      padding: 12px 10px;
+      border-radius: 0px !important;
+  }
+  
+  
+  .mat-dialog-container .mat-card-header .mat-card-title{
+      margin-bottom: 0;
+      font-size: 16px;
+      font-weight: 600;
+  }
+  
+  .mat-dialog-content {
+      padding: 0 24px !important;
+      box-shadow: none !important;
+  }
+  .mat-form-field {
+    margin: 0 10px;
+}
+
+
+

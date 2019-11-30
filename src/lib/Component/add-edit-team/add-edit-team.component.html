@@ -1,0 +1,135 @@
+<span class="formspan">
+  <mat-card>
+    <mat-toolbar color="primary" style="justify-content: center; align-items: center;">
+      <h2 class="headerSpan">{{HeaderText}}</h2>
+    </mat-toolbar>
+    <span class="formspan">
+      <mat-card-content class="example-container">
+        <form class="example-form" novalidate [formGroup]="teamForm" name="teamForm" (ngSubmit)="TeamFormSubmit()"
+          autocomplete="off">
+          <div class="example-container">
+
+            <mat-form-field>
+              <input matInput placeholder="Team Member Name" [formControl]="teamForm.controls['membername']"
+                (blur)="inputUntouch(teamForm,'membername')">
+              <mat-error *ngIf="teamForm.controls['membername'].touched 
+                && !teamForm.controls['membername'].valid
+                       && teamForm.controls['membername'].errors.required">
+                Category Name field can not be blank</mat-error>
+            </mat-form-field><br>
+
+
+
+            <mat-form-field>
+              <textarea matInput placeholder="Description" [formControl]="teamForm.controls['description']"
+                (blur)="inputUntouch(teamForm,'description')">
+                       </textarea>
+              <mat-error *ngIf="teamForm.controls['description'].touched && !teamForm.controls['description'].valid
+                   && teamForm.controls['description'].errors.required">
+                Description field can not be blank</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field>
+              <mat-label>Category Name</mat-label>
+              <mat-select formControlName="categoryname">
+                <mat-option [value]=0>
+                  Select a category
+                </mat-option>
+                <mat-option *ngFor="let f of allData" [value]="f._id">
+                  {{f.categoryName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- bullet list start here -->
+            <div formArrayName="bulletarray" class="bulletarr"
+              *ngFor="let blist of teamForm.controls.bulletarray?.value; let i = index; trackBy: trackByFn">
+              <ng-container [formGroupName]="i">
+                <div class="top_header">
+                  bullet list
+                </div>
+                <!-- ------------bullet name-----------  -->
+                <mat-form-field>
+                  <input matInput formControlName="bullet_name" placeholder="Name">
+
+                </mat-form-field><br>
+                <!-- -----------------------------------  -->
+
+
+                <!-- --------------------bullet description-----------------  -->
+                <mat-form-field>
+                  <textarea matInput formControlName="bullet_desc" placeholder="Description"></textarea>
+
+                </mat-form-field><br>
+                <!-- ----------------------------------------------------------  -->
+
+              </ng-container>
+              <button type="button" (click)="addBulletListData('','')">
+                <mat-icon>add</mat-icon>
+              </button>
+              <button type="button" (click)="deleteBulletListData()" *ngIf="i!=0">
+                <mat-icon>remove</mat-icon>
+              </button>
+            </div>
+            <!-- bullet list end here -->
+
+
+            <!--multiple phone start here -->
+            <div formArrayName="multiplephone"
+              *ngFor="let plist of teamForm.controls.multiplephone?.value; let i = index; trackBy: trackByFn">
+              <ng-container [formGroupName]="i">
+
+                <mat-form-field>
+                  <input matInput formControlName="contactphone" placeholder="contactphone">
+                  <span matSuffix>
+                    <i class="material-icons" (click)="addphone('')">add</i>
+                    <i *ngIf="i>0" class="material-icons" (click)="removephone(i)">remove</i>
+                  </span>
+                </mat-form-field><br>
+
+              </ng-container>
+            </div>
+            <!-- multiple phone end here -->
+
+            <!-- multiple e-mail start here -->
+            <div formArrayName="multipleemail"
+              *ngFor="let elist of teamForm.controls.multipleemail?.value; let i = index; trackBy: trackByFn">
+              <ng-container [formGroupName]="i">
+
+                <mat-form-field>
+                  <input matInput formControlName="contactemail" placeholder="contactemail">
+                  <span matSuffix>
+                    <i class="material-icons" (click)="addemail('')">add</i>
+                    <i *ngIf="i>0" class="material-icons" (click)="removeemail(i)">remove</i>
+                  </span>
+                </mat-form-field><br>
+
+              </ng-container>
+            </div>
+            <!-- multiple e-mail end here -->
+
+          </div>
+          <!-- file upload library start here -->
+          <lib-file-upload [config]="imageConfigData"></lib-file-upload>
+          <mat-error *ngIf="ErrCode==true">Please add just one image.</mat-error>
+
+          <!-- CARD VIEW  -->
+          <mat-card-content class="files-view" *ngIf="flag==true">
+            <mat-card class="example-card">
+              <img mat-card-image [attr.src]="img_var">
+              <mat-card-title>{{ image_name }}</mat-card-title>
+              <mat-card-subtitle>{{ image_type }}</mat-card-subtitle>
+              <span class="closecard" (click)="clear_image()">
+                <i class="material-icons">clear</i>
+              </span>
+            </mat-card>
+          </mat-card-content>
+          <!-- file upload end here -->
+          <button mat-raised-button color="primary" mat-button class="submitbtn" type="submit">{{ButtonText}}</button>
+          <button type="button" class="submitbtn" mat-raised-button color="primary" (click)="ResetForm()">Reset</button>
+        </form>
+      </mat-card-content>
+    </span>
+    <mat-spinner *ngIf="spinnerLoader"></mat-spinner>
+  </mat-card>

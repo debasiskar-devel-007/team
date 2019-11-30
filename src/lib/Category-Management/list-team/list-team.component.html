@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-toolbar color="primary" style="justify-content: center; align-items: center;">
+    <h2 class="headerSpan">Team Category Management List</h2>
+  </mat-toolbar>
+
+  <!-- add button start here -->
+  <mat-toolbar class="buttonsetToolbar">
+    <button class="singleButton" mat-raised-button color="primary" (click)="addButton()" >Add Team Category</button>
+    <button class="singleButton" mat-raised-button color="primary" (click)="manageTeamButton()" >Manage Team</button>
+
+  </mat-toolbar>
+<!-- adding button end here -->
+<mat-card-content class="listing-content-admin">
+ 
+  <lib-listing class="formfilterdiv formfilterdivnew" *ngIf="alldata.length>0" 
+    [datasource]="alldata"
+    [sourcedata]="sourcenameViaapp"
+    [skip]="alldata_skip" 
+    [modify_header_array]="alldata_modify_header" 
+    [apiurl]="serverUrlData" 
+    [editroute]="editRouteval"
+    [jwttoken]="tokenVal" 
+    [statusarr]="status" 
+    [updateendpoint]="addupdate"
+    [deleteendpoint]="deleteendpointVal"
+    [jwttoken]="tokenVal"
+    [date_search_endpoint]="searchingendpoint"
+    [date_search_source]="sourcenameViaapp"
+    [search_settings]="search_settings">
+</lib-listing>
+</mat-card-content>
+</mat-card>
